@@ -5,6 +5,10 @@ import json
 import os
 import uuid
 
+import ptvsd
+ptvsd.enable_attach(address=('0.0.0.0', 9999), redirect_output=True)
+ptvsd.wait_for_attach()
+
 client = boto3.client('dynamodb')
 sts = boto3.client('sts')
 
@@ -12,9 +16,11 @@ DYNAMODB_TABLE_NAME = os.environ.get("DYNAMODB_TABLE_NAME")
 EVENT_DATA_FIELDS = ["BookTitle", "ReviewScore"]
 
 def validate_event(event):
+    print(event)
     valid_flag = True
     msg = None
     
+    print(event['ReviewScore'])
     if not validate_review_score(event['ReviewScore']):
         valid_flag = False
         msg = "Review score is not valid"
