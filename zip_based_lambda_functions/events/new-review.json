@@ -18,7 +18,7 @@
       "x-forwarded-proto": "https"
     },
     "requestContext": {
-      "accountId": "088483494489",
+      "accountId": "088xxxx489",
       "apiId": "5gduqjk6dg",
       "domainName": "5gduqjk6dg.execute-api.ap-southeast.amazonaws.com",
       "domainPrefix": "5gduqjk6dg",

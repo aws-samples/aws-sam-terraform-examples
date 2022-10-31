@@ -14,15 +14,15 @@ terraform {
   
   backend "s3" {
     # Update the remote backend below to support your environment
-    bucket         = "sebakasp-sample-tf-state-ap-southeast-2"
+    bucket         = "ssurpo-tf-state-us-east-1"
     key            = "sample/terraform.tfstate"
-    region         = "ap-southeast-2"
+    region         = "us-east-1"
     encrypt        = true
   }
 }
 
 provider "aws" {
-  region = "ap-southeast-2"
+  region = "us-east-1"
 }
 
 
@@ -30,7 +30,8 @@ provider "aws" {
 # To override env vars when testing locally, function id is:
 # aws_lambda_function.publish_book_review <- TODO: Add that to blog post.
 # module.module_name.resource_type.resource_name < when using modules
-# when running local invoke, need to supply function id, which is same as above. Alternatively it can be function name, both will work
+# when running local invoke, need to supply function id, which is same as above. 
+# Alternatively it can be function name, both will work
 resource "aws_lambda_function" "publish_book_review" {
     filename = "${local.building_path}/${local.lambda_code_filename}"
     handler = "index.lambda_handler"
@@ -38,6 +39,7 @@ resource "aws_lambda_function" "publish_book_review" {
     function_name = "publish-book-review"
     role = aws_iam_role.iam_for_lambda.arn
     timeout = 30
+    # source_code_hash = filebase64sha256("${local.building_path}/${local.lambda_code_filename}")
     depends_on = [
         null_resource.build_lambda_function
     ]
@@ -66,8 +68,11 @@ resource "null_resource" "build_lambda_function" {
         build_number = "${timestamp()}" # TODO: calculate hash of lambda function. Mo will have a look at this part
     }
 
+
+# change this based on the OS condition
     provisioner "local-exec" {
-        command = "./py_build.sh \"${local.lambda_src_path}\" \"${local.building_path}\" \"${local.lambda_code_filename}\" Function"
+        command =  substr(pathexpand("~"), 0, 1) == "/"? "./py_build.sh \"${local.lambda_src_path}\" \"${local.building_path}\" \"${local.lambda_code_filename}\" Function" : "powershell.exe -File .\\PyBuild.ps1 ${local.lambda_src_path} ${local.building_path} ${local.lambda_code_filename} Function"
+
     }
 }
 
