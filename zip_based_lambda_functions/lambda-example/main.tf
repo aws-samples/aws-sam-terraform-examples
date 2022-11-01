@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
 terraform {
   required_version = ">= 0.13.1"
 
@@ -20,7 +23,7 @@ terraform {
     encrypt        = true
   }
 }
-  
+
   provider "aws" {
     region = "<AWS region>" # eg. us-east-1
  }
