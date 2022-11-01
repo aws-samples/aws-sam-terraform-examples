@@ -19,7 +19,7 @@ terraform {
     region         = "<AWS region>" # eg. us-east-1
     encrypt        = true
   }
-  
+}  
   provider "aws" {
     region = "<AWS region>" # eg. us-east-1
  }
