@@ -4,3 +4,4 @@
 .aws-sam-iacs/
 .DS_Store
 .terraform.lock.hcl
+terraform.tfstate

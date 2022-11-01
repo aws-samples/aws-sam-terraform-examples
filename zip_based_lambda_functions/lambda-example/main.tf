@@ -14,14 +14,6 @@ terraform {
       version = ">= 2.0"
     }
   }
-  
- backend "s3" {
-    # Update the remote backend below to support your environment
-    bucket         = "<your-s3-bucket-name>"
-    key            = "sample/terraform.tfstate"
-    region         = "<AWS region>" # eg. us-east-1
-    encrypt        = true
-  }
 }
 
   provider "aws" {
