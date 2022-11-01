@@ -12,18 +12,17 @@ terraform {
     }
   }
   
-  backend "s3" {
+ backend "s3" {
     # Update the remote backend below to support your environment
-    bucket         = "sebakasp-sample-tf-state-ap-southeast-2"
+    bucket         = "<your-s3-bucket-name>"
     key            = "sample/terraform.tfstate"
-    region         = "ap-southeast-2"
+    region         = "<AWS region>" # eg. us-east-1
     encrypt        = true
   }
-}
-
-provider "aws" {
-  region = "ap-southeast-2"
-}
+  
+  provider "aws" {
+    region = "<AWS region>" # eg. us-east-1
+ }
 
 
 resource "aws_lambda_function" "publish_book_review" {
