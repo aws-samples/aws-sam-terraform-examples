@@ -1,0 +1,40 @@
+{
+    "version": "2.0",
+    "routeKey": "POST /",
+    "rawPath": "/",
+    "rawQueryString": "",
+    "headers": {
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate, br",
+      "cache-control": "no-cache",
+      "content-length": "67",
+      "content-type": "application/json",
+      "host": "5gduqjk6dg.execute-api.ap-southeast-2.amazonaws.com",
+      "postman-token": "e1e29d9d-389f-45da-b7f3-c5bdd873c916",
+      "user-agent": "PostmanRuntime/7.26.10",
+      "x-amzn-trace-id": "Root=1-6087880a-1c8111a52205e65b2c2e5e1a",
+      "x-forwarded-for": "69.21.110.171",
+      "x-forwarded-port": "443",
+      "x-forwarded-proto": "https"
+    },
+    "requestContext": {
+      "accountId": "088xxxx489",
+      "apiId": "5gduqjk6dg",
+      "domainName": "5gduqjk6dg.execute-api.ap-southeast.amazonaws.com",
+      "domainPrefix": "5gduqjk6dg",
+      "http": {
+        "method": "POST",
+        "path": "/",
+        "protocol": "HTTP/1.1",
+        "sourceIp": "69.21.110.171",
+        "userAgent": "PostmanRuntime/7.26.10"
+      },
+      "requestId": "12345",
+      "routeKey": "POST /",
+      "stage": "$default",
+      "time": "27/Apr/2021:03:42:02 +0000",
+      "timeEpoch": 1619494922394
+    },
+    "body": "{\"Hello\":\"World\"}",
+    "isBase64Encoded": false
+  }

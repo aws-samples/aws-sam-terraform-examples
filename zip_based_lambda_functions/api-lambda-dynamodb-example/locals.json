@@ -1,0 +1,5 @@
+{
+    "aws_lambda_function.publish_book_review": {
+        "DYNAMODB_TABLE_NAME": "GameScores2"
+    }
+}
