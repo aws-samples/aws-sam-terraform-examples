@@ -17,7 +17,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "<AWS region>" # eg. us-east-1
+    region = "<AWS region>" # eg. us-east-1
 }
 
 
@@ -57,7 +57,7 @@ resource "null_resource" "build_lambda_function" {
     }
 
     provisioner "local-exec" {
-        command = "./py_build.sh \"${local.lambda_src_path}\" \"${local.building_path}\" \"${local.lambda_code_filename}\" Function"
+        command =  substr(pathexpand("~"), 0, 1) == "/"? "./py_build.sh \"${local.lambda_src_path}\" \"${local.building_path}\" \"${local.lambda_code_filename}\" Function" : "powershell.exe -File .\\PyBuild.ps1 ${local.lambda_src_path} ${local.building_path} ${local.lambda_code_filename} Function"
     }
 }
 
