@@ -9,8 +9,8 @@ import os
 import uuid
 import ptvsd
 
-ptvsd.enable_attach(address=('0.0.0.0', 9999), redirect_output=True)
-ptvsd.wait_for_attach()
+# ptvsd.enable_attach(address=('0.0.0.0', 9999), redirect_output=True)
+# ptvsd.wait_for_attach()
 
 client = boto3.client('dynamodb')
 sts = boto3.client('sts')
