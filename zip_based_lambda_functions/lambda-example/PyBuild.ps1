@@ -5,6 +5,10 @@ $src_code=$args[0]
 $build_path=$args[1]
 $output_name=$args[2]
 
+if ( ($src_code -eq '')      -or ($src_code -eq $null) )      { Write-Host "src_code is undefined.";      exit 1 }
+if ( ($build_path -eq '')    -or ($build_path -eq $null) )    { Write-Host "build_path is undefined.";    exit 1 }
+if ( ($output_name -eq '')   -or ($output_name -eq $null) )   { Write-Host "output_name is undefined.";   exit 1 }
+
 Write-Host "Building $src_code into $build_path"
 
 if (Test-Path $build_path) {
