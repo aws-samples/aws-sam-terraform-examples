@@ -17,10 +17,11 @@ terraform {
 }
 
 provider "aws" {
-    region = "<AWS region>" # eg. us-east-1
+    region = "eu-west-2"
 }
 
 
+# This defines a Lambda function resource...
 resource "aws_lambda_function" "publish_book_review" {
     filename = "${local.building_path}/${local.lambda_code_filename}"
     handler = "index.lambda_handler"
@@ -39,6 +40,10 @@ resource "aws_lambda_function" "publish_book_review" {
   }
 }
 
+# When the AWS SAM CLI build command runs, AWS SAM reviews Terraform code for any
+# null_resource starting with sam_metadata_ and uses the information contained
+# within this resource block to gather the location of the Lambda function source
+# code and .zip package. 
 resource "null_resource" "sam_metadata_aws_lambda_function_publish_book_review" {
     triggers = {
         resource_name = "aws_lambda_function.publish_book_review"
