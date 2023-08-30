@@ -1,6 +1,6 @@
 # Terraform and SAM example applications
 
-This repository contains sample applications showing how to use the AWS SAM CLI with Hashicorp's Terraform. It accompanies the blog [blog title](https://aws.amazon.com).
+This repository contains sample applications showing how to use the AWS SAM CLI with Hashicorp's Terraform.
 
 ## Requirements
 * [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started.html]) (Be sure to follow the instructions for the SAM CLI requirements)
@@ -13,11 +13,11 @@ The following instructions work for the Amazon API Gateway REST (v1) and HTTP (v
 Choose the api you would like to test and change to that directory:
 * REST (v1)
     ```
-    cd api_gateway_v1
+    cd api_gateway_v1/tf-resources
     ```
 * HTTP (v2)
     ```
-    cd api_gateway_v2
+    cd api_gateway_v2/tf-resources
     ```
 ### Preparing the application
 To ensure all Terraform dependencies are installed run the following:
