@@ -34,7 +34,7 @@ Each example contains two Lambda functions. One function is a simple application
     ```
 2. Test the authorizer function
     ```
-    sam local invoke 'module.lambda_function_auth.aws_lambda_function.this[0]' -e events/auth.json 
+    sam local invoke 'module.lambda_function_auth.aws_lambda_function.this[0]' -e ../events/auth.json 
     ```
 ### Function invocation through *start-api*
 Each project has two endpoints. One is an open endpoint and the other is secured by a Lambda authorizer for API Gateway. To test the endpoints start the local API with the following command:
